@@ -1,5 +1,6 @@
 const net = require("net");
 
+
 // establishes a connection with the game server
 const connect = function() {
   const conn = net.createConnection({
@@ -20,6 +21,7 @@ const connect = function() {
     // slowMove(conn, "left", 200);
     // slowMove(conn, "down", 250);
   });
+
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
@@ -27,31 +29,9 @@ const connect = function() {
     console.log("Server says: ", data);
   });
 
-
   return conn;
 };
 
-const handleUserInput = function(key) {
-  // your code here
-  if (key === '\u0003') {
-    process.exit();
-  }
-  console.log('key:', key);
-};
-
-
-// setup interface to handle user input from stdin
-
-const setupInput = function() {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-  stdin.on("data", handleUserInput);
-  return stdin;
-};
-
-setupInput();
 // const slowMove = (conn, move, time) => {
 //   setTimeout(() => {
 //     conn.write(`Move: ${move}`);
