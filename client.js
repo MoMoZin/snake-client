@@ -9,7 +9,8 @@ const connect = function() {
 
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
-    conn.write("Name: MMZ");
+    conn.write("Name: CAT");
+    conn.write("Say: I'm here to beat yall");
   });
 
   // interpret incoming data as text
